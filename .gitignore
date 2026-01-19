@@ -1,0 +1,48 @@
+# ===============================================
+# Terraform Tooling
+# ===============================================
+
+# Local .terraform directories (contains providers/plugins)
+**/.terraform/*
+
+# .tfstate files (These contain sensitive data and should be in GCS, not Git)
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# ===============================================
+# Variables and Secrets
+# ===============================================
+
+# Exclude all variable files (best practice: keep values in Git, secrets in Vault/Secret Manager)
+# If you choose to commit non-sensitive tfvars, remove these lines.
+*.tfvars
+*.tfvars.json
+
+# Ignore override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# ===============================================
+# Credentials and Keys
+# ===============================================
+
+# GCP Service Account keys (Never commit these!)
+*.json
+!environments/**/backend.tf  # Don't ignore the backend config files
+.gcp-credentials/
+
+# ===============================================
+# System and IDE Files
+# ===============================================
+
+.DS_Store
+.idea/
+.vscode/
+*.log
+.terraform.workspace
